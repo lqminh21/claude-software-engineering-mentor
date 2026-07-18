@@ -1,0 +1,68 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code — cấu hình cục bộ của máy, không chia sẻ
+.claude/settings.local.json
+
+# Biến môi trường / secrets
+.env
+.env.local
+.env.*.local
+
+# Log
+*.log
+
+# Dependency & build artifacts — mỗi topic bundle qua /learn có thể sinh ra
+# examples/ ở stack khác nhau (Node, Python, .NET, Go, Java, frontend framework...);
+# đây là safety-net chung cho các stack phổ biến, không phải checklist đầy đủ.
+
+# Node / JS / TS / frontend framework
+node_modules/
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+.eslintcache
+.next/
+.nuxt/
+.svelte-kit/
+.parcel-cache/
+.turbo/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Go / PHP (vendor thư viện)
+vendor/
+
+# Rust / Java (Maven/Gradle)
+target/
+*.class
+.gradle/
+
+# .NET
+obj/
+*.user
+.vs/
+
+# Nội dung luyện tập theo từng topic bundle — chỉ dùng cục bộ
+my-work/
+
+# Ghi chú/spec/plan nội bộ — chỉ dùng cục bộ, không chia sẻ qua git
+docs/
+
