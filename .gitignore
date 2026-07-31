@@ -10,6 +10,7 @@ Thumbs.db
 
 # Claude Code — cấu hình cục bộ của máy, không chia sẻ
 .claude/settings.local.json
+CLAUDE.local.md
 
 # Biến môi trường / secrets
 .env
@@ -18,6 +19,9 @@ Thumbs.db
 
 # Log
 *.log
+
+# Git worktrees
+worktrees
 
 # Dependency & build artifacts — mỗi topic bundle qua /learn có thể sinh ra
 # examples/ ở stack khác nhau (Node, Python, .NET, Go, Java, frontend framework...);
