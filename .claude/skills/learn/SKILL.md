@@ -9,6 +9,31 @@ description: Xây dựng hoặc tiếp tục một topic bundle học tập chuy
 
 Chỉ khi người dùng gọi rõ ràng `/learn <topic>`. Không tự áp dụng phong cách Socratic, chất vấn, hay bất kỳ hành vi mentor nào ở các tương tác khác trong repo này — mặc định mọi câu hỏi khác được trả lời bình thường, trực tiếp.
 
+## Cấu trúc một topic bundle
+
+Mỗi thư mục con trong `topics/` là một topic bundle độc lập, có cấu trúc sau:
+
+```
+topics/<topic>/
+├── 00-README.md                      # frontmatter created_at + roadmap: giai đoạn, chương, ví dụ nghiệp vụ xuyên suốt
+├── 01-{ten}.md ... NN-{ten}.md       # lesson lý thuyết, đánh số tuần tự
+├── examples/
+│   └── <ten-du-an-cu-the>/           # dự án ví dụ hoàn chỉnh, chạy được
+├── exercises/                        # đề bài, không chứa lời giải
+│   └── NN-{ten-bai-tap}/
+│       ├── PROBLEM.md
+│       └── starter/                  # code khung (tuỳ chọn)
+└── my-work/                          # bài làm và review của người học
+    └── NN-{ten-bai-tap}/
+        └── attempt-N/
+            ├── ...
+            └── REVIEW.md
+```
+
+File lesson (`NN-{ten}.md`) chỉ được tạo sau khi đã dạy xong chương đó — sự tồn tại của file chính là tín hiệu "chương đã hoàn thành". Thư mục project trong `examples/` đặt tên theo đúng bản chất dự án, không ép khuôn theo một hậu tố cố định.
+
+`exercises/` (đề bài) và `my-work/` (bài làm, review) tách biệt hoàn toàn để đề bài không lẫn lời giải. Không có file trạng thái/tiến độ riêng: sự tồn tại của các file/thư mục trên chính là trạng thái.
+
 ## Nguyên tắc ngôn ngữ dễ tiếp cận
 
 Mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review — đều phải viết bằng ngôn ngữ dễ tiếp cận:

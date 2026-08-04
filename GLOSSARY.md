@@ -1,8 +1,10 @@
 # Glossary — Thuật ngữ dùng trong bộ agent review
 
-Phụ lục giải thích các thuật ngữ xuất hiện trong 10 agent tại `.claude/agents/`. Mỗi mục theo cấu trúc: **định nghĩa ngắn** → *Vì sao quan trọng* → *Khi nào gặp*. Nhóm theo lĩnh vực trùng với từng agent.
+Phụ lục giải thích các thuật ngữ xuất hiện trong bộ agent tại `.claude/agents/`. Mỗi mục theo cấu trúc: **định nghĩa ngắn** → *Vì sao quan trọng* → *Khi nào gặp*. Nhóm theo lĩnh vực trùng với từng agent.
 
 Thuật ngữ giữ nguyên tiếng Anh (chuẩn ngành); giải thích bằng tiếng Việt.
+
+Khi sửa một file agent mà thêm hoặc đổi thuật ngữ kỹ thuật, cập nhật file này ngay trong cùng lần sửa — hai file lệch nhau thì agent dùng thuật ngữ mà người đọc không tra được ở đâu.
 
 ---
 

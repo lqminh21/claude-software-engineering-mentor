@@ -8,13 +8,13 @@ Gõ `/learn <tên-chủ-đề>` để xây mới hoặc tiếp tục một topic
 
 ## Cấu trúc một topic bundle
 
-Xem sơ đồ và quy ước đầy đủ trong [`CLAUDE.md`](CLAUDE.md#cấu-trúc-một-topic-bundle) — không lặp lại ở đây để tránh hai nơi mô tả cùng một cấu trúc bị lệch nhau khi quy trình đổi.
+Xem sơ đồ và quy ước đầy đủ trong [`SKILL.md`](.claude/skills/learn/SKILL.md#cấu-trúc-một-topic-bundle) — không lặp lại ở đây để tránh hai nơi mô tả cùng một cấu trúc bị lệch nhau khi quy trình đổi.
 
 Tóm tắt: mỗi bundle gồm `00-README.md` (roadmap), các file lesson `NN-{ten}.md`, `examples/` (dự án minh hoạ), `exercises/` (đề bài) và `my-work/` (bài làm + review) — `exercises/` và `my-work/` tách biệt hoàn toàn để đề bài không lẫn lời giải, và không có file trạng thái riêng, sự tồn tại của file/thư mục chính là trạng thái.
 
 ## Bộ agent chuyên môn
 
-Mỗi agent trong [`.claude/agents/`](.claude/agents/) là một lens đánh giá/thiết kế riêng biệt, dùng được cả trong luồng `/learn` lẫn độc lập cho việc review code bình thường:
+Mỗi agent trong [`.claude/agents/`](.claude/agents/) là một lens chuyên môn riêng biệt, dùng được cả trong luồng `/learn` lẫn độc lập cho công việc thường ngày — review code, thẩm định thiết kế, soi bảo mật, đánh giá tài liệu, soạn nội dung mới:
 
 | Agent | Vai trò |
 |---|---|
@@ -37,9 +37,9 @@ Ba điểm can thiệp thường dùng nhất:
 
 - **Thêm agent** — tạo file mới trong `.claude/agents/`, rồi bổ sung dòng tương ứng vào "Bảng agent theo domain" trong [`SKILL.md`](.claude/skills/learn/SKILL.md); `/learn` chọn agent qua bảng đó, không qua tên file. Cập nhật kèm bảng ở mục "Bộ agent chuyên môn" phía trên và thuật ngữ mới trong [`GLOSSARY.md`](GLOSSARY.md).
 - **Thêm chuẩn dùng chung** — đặt vào `.claude/standards/` khi một quy tắc áp dụng cho từ hai agent trở lên, thay vì lặp lại trong từng file agent.
-- **Đổi quy trình sư phạm** — sửa `SKILL.md`. Cấu trúc thư mục mà skill sinh ra được đặc tả ở [`CLAUDE.md`](CLAUDE.md#cấu-trúc-một-topic-bundle); sửa một nơi thì cập nhật nơi kia trong cùng lần sửa.
+- **Đổi quy trình sư phạm** — sửa [`SKILL.md`](.claude/skills/learn/SKILL.md). Cấu trúc thư mục mà skill sinh ra cũng được đặc tả trong chính file này, nên quy trình và đặc tả đầu ra sửa cùng một chỗ.
 
 ## Tài liệu liên quan
 
-- [`CLAUDE.md`](CLAUDE.md) — hướng dẫn cho trợ lý AI, mô tả vai trò repo và cấu trúc bundle.
+- [`CLAUDE.md`](CLAUDE.md) — hai điều trợ lý AI cần biết ở mọi phiên: không tự nhập vai mentor khi người dùng không gõ `/learn`, và bộ agent chuyên môn dùng được cho công việc thường ngày.
 - [`GLOSSARY.md`](GLOSSARY.md) — thuật ngữ chuyên ngành dùng trong bộ agent, nhóm theo lĩnh vực.
