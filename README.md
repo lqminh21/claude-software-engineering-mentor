@@ -1,10 +1,10 @@
 # Software Engineering Mentor
 
-Hệ thống học tập cá nhân, vận hành theo mô hình mentor: mục tiêu là đi từ trình độ hiện tại lên senior, xa hơn là nâng cao chuyên môn tới mức tự ra quyết định kỹ thuật độc lập như Staff/Principal Engineer, bằng cách xây dựng các bộ tài liệu chuyên nghiệp (lý thuyết + ví dụ chạy được + bài tập + review) cho từng chủ đề kỹ thuật, học từ nền tảng cơ bản, dùng Claude Code làm mentor.
+Bộ khung biến một repo thành hệ thống học tập vận hành theo mô hình mentor, dùng trợ lý AI lập trình làm người dạy. Mỗi chủ đề kỹ thuật được xây thành một bộ tài liệu chuyên nghiệp — lý thuyết, ví dụ chạy được, bài tập, review — học từ nền tảng cơ bản đi lên, hướng tới trình độ tự ra quyết định kỹ thuật độc lập, nâng cao trình độ kỹ năng của từng cá nhân.
 
 ## Cách dùng
 
-Gõ `/learn <tên-chủ-đề>` trong Claude Code để xây mới hoặc tiếp tục một topic bundle (ví dụ: `/learn event-driven-architecture`). Toàn bộ quy trình sư phạm — roadmap, dạy Socratic, chất vấn, viết chương, thiết kế bài tập, review — được định nghĩa trong [`.claude/skills/learn/SKILL.md`](.claude/skills/learn/SKILL.md) và chỉ kích hoạt khi gọi lệnh này. Ngoài `/learn`, mọi tương tác khác trong repo diễn ra bình thường như một repo bất kỳ.
+Gõ `/learn <tên-chủ-đề>` để xây mới hoặc tiếp tục một topic bundle (ví dụ: `/learn event-driven-architecture`). Toàn bộ quy trình sư phạm — roadmap, dạy Socratic, chất vấn, viết chương, thiết kế bài tập, review — được định nghĩa trong [`.claude/skills/learn/SKILL.md`](.claude/skills/learn/SKILL.md) và chỉ kích hoạt khi gọi lệnh này. Ngoài `/learn`, mọi tương tác khác trong repo diễn ra bình thường như một repo bất kỳ.
 
 ## Cấu trúc một topic bundle
 
@@ -14,7 +14,7 @@ Tóm tắt: mỗi bundle gồm `00-README.md` (roadmap), các file lesson `NN-{t
 
 ## Bộ agent chuyên môn
 
-Repo có 10 agent trong [`.claude/agents/`](.claude/agents/), mỗi agent là một lens đánh giá/thiết kế riêng biệt, dùng được cả trong luồng `/learn` lẫn độc lập cho việc review code bình thường:
+Mỗi agent trong [`.claude/agents/`](.claude/agents/) là một lens đánh giá/thiết kế riêng biệt, dùng được cả trong luồng `/learn` lẫn độc lập cho việc review code bình thường:
 
 | Agent | Vai trò |
 |---|---|
@@ -31,7 +31,15 @@ Repo có 10 agent trong [`.claude/agents/`](.claude/agents/), mỗi agent là m�
 
 Các quy tắc dùng chung giữa nhiều agent (chuẩn phản hồi review, thuật ngữ chính xác) được tách vào [`.claude/standards/`](.claude/standards/) thay vì lặp lại trong từng file agent.
 
+## Tuỳ biến
+
+Ba điểm can thiệp thường dùng nhất:
+
+- **Thêm agent** — tạo file mới trong `.claude/agents/`, rồi bổ sung dòng tương ứng vào "Bảng agent theo domain" trong [`SKILL.md`](.claude/skills/learn/SKILL.md); `/learn` chọn agent qua bảng đó, không qua tên file. Cập nhật kèm bảng ở mục "Bộ agent chuyên môn" phía trên và thuật ngữ mới trong [`GLOSSARY.md`](GLOSSARY.md).
+- **Thêm chuẩn dùng chung** — đặt vào `.claude/standards/` khi một quy tắc áp dụng cho từ hai agent trở lên, thay vì lặp lại trong từng file agent.
+- **Đổi quy trình sư phạm** — sửa `SKILL.md`. Cấu trúc thư mục mà skill sinh ra được đặc tả ở [`CLAUDE.md`](CLAUDE.md#cấu-trúc-một-topic-bundle); sửa một nơi thì cập nhật nơi kia trong cùng lần sửa.
+
 ## Tài liệu liên quan
 
-- [`CLAUDE.md`](CLAUDE.md) — hướng dẫn cho Claude Code, mô tả vai trò repo và cấu trúc bundle.
+- [`CLAUDE.md`](CLAUDE.md) — hướng dẫn cho trợ lý AI, mô tả vai trò repo và cấu trúc bundle.
 - [`GLOSSARY.md`](GLOSSARY.md) — thuật ngữ chuyên ngành dùng trong bộ agent, nhóm theo lĩnh vực.

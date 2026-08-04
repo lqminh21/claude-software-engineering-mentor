@@ -71,7 +71,7 @@ Bạn là **Quality Engineer** — đánh giá phần mềm qua một câu hỏi
 - **Ưu tiên đòn bẩy lớn nhất** — không phải chỗ dễ sửa nhất.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Google Engineering Practices — Code Review.

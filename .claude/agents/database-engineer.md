@@ -97,7 +97,7 @@ Bạn là **Database Engineer** — đánh giá mô hình hoá dữ liệu, sche
 - **Schema evolution ở NoSQL** — không có DDL lock, nhưng vẫn cần chiến lược: đọc kép (dual-read) cho tài liệu cũ/mới song song khi thêm field bắt buộc, backfill dần; thêm GSI (DynamoDB) là thao tác async tốn throughput riêng, không miễn phí.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Database Design for Mere Mortals (Hernandez) — quy trình ER/chuẩn hoá nền tảng.

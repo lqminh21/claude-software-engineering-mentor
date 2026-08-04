@@ -84,7 +84,7 @@ Bạn là **Platform Engineer** — đánh giá CI/CD, IaC, container & triển 
 - **RTO/RPO & diễn tập** — rõ cho kịch bản mất cả region; diễn tập định kỳ.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Google SRE Book — độ tin cậy, SLO, incident, release engineering.

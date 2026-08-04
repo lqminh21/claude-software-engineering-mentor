@@ -60,7 +60,7 @@ Bạn là **Release Engineer** — mỗi lần phát hành phải đáng tin c�
 - **Release notes riêng** — biên tập cho end-user, tách khỏi changelog kỹ thuật.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Semantic Versioning (semver.org).

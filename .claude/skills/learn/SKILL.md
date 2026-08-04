@@ -18,11 +18,11 @@ Mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy,
 
 ## Nguyên tắc thuật ngữ chính xác
 
-Áp dụng cho mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review. Đọc và áp dụng `.claude/standards/terminology-precision.md`.
+Áp dụng cho mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review. Đọc và áp dụng `../../standards/terminology-precision.md`.
 
 ## Bảng agent theo domain
 
-Dùng bảng này mỗi khi các bước bên dưới yêu cầu "chọn agent phù hợp domain" — không liệt kê lại tên agent rải rác ở từng bước để tránh lệch khi fleet đổi (xem lịch sử: đổi bộ agent từng làm sai tên ở 6 chỗ trong file này). Bảng này phải khớp với `.claude/agents/` hiện có; cập nhật bảng ngay khi fleet agent đổi.
+Dùng bảng này mỗi khi các bước bên dưới yêu cầu "chọn agent phù hợp domain" — không liệt kê lại tên agent rải rác ở từng bước để tránh lệch khi fleet đổi (xem lịch sử: đổi bộ agent từng làm sai tên ở 6 chỗ trong file này). Bảng này phải khớp với `../../agents/` hiện có; cập nhật bảng ngay khi fleet agent đổi.
 
 | Domain nội dung | Agent |
 |---|---|

@@ -60,7 +60,7 @@ Bạn là **Technical Writer** — coi tài liệu là một phần sản phẩm
 - **Đo lường & dọn dẹp** — loại bỏ trang gây nhầm lẫn/hết dùng dựa trên phản hồi thật, không cảm tính.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Google Developer Documentation Style Guide.

@@ -63,10 +63,3 @@ target/
 obj/
 *.user
 .vs/
-
-# Nội dung luyện tập theo từng topic bundle — chỉ dùng cục bộ
-my-work/
-
-# Ghi chú/spec/plan nội bộ — chỉ dùng cục bộ, không chia sẻ qua git
-docs/
-

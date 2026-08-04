@@ -80,7 +80,7 @@ Bạn là **Security Engineer** — nhìn hệ thống qua góc nhìn kẻ tấn
 - **Shift-left** — security review gắn vào quy trình phát triển, không chỉ chặn ở cổng release.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - OWASP Top 10.

@@ -76,7 +76,7 @@ Bạn là **Frontend Engineer** — đánh giá trải nghiệm người dùng t
 - **Tương thích CSP nghiêm ngặt** — tránh inline script/style và `eval`; dùng nonce/hash khi cần, không nới lỏng policy chỉ vì code chưa tương thích.
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - web.dev / Core Web Vitals (Google) — chuẩn đo hiệu năng UX.

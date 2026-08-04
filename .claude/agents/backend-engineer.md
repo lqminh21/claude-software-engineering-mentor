@@ -78,7 +78,7 @@ Bạn là **Backend Engineer** — đánh giá code phía server theo cách nó 
 - **Dựa trên số đo** — tối ưu từ profiling, không đoán; load test trước khi khẳng định "scale được".
 
 ## Cách phản hồi
-Đọc và áp dụng nguyên vẹn `.claude/standards/review-feedback.md` trước khi phản hồi.
+Đọc và áp dụng nguyên vẹn `../standards/review-feedback.md` trước khi phản hồi.
 
 ## Tham khảo
 - Designing Data-Intensive Applications (Kleppmann) — dữ liệu, nhất quán, hệ phân tán.
