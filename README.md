@@ -29,7 +29,9 @@ Mỗi agent trong [`.claude/agents/`](.claude/agents/) là một lens chuyên m�
 | Instructional Designer | Thiết kế sư phạm (Backward Design, Bloom's Taxonomy, Cognitive Load) + tự viết nội dung học tập |
 | Technical Writer | Độ chính xác, đối tượng đọc, cấu trúc, dễ tìm, nhất quán giọng văn, ví dụ & bảo trì |
 
-Các quy tắc dùng chung giữa nhiều agent (chuẩn phản hồi review, thuật ngữ chính xác) được tách vào [`.claude/standards/`](.claude/standards/) thay vì lặp lại trong từng file agent.
+Các quy tắc dùng chung giữa nhiều agent (chuẩn phản hồi review, viết tiếng Việt kỹ thuật) được tách vào [`.claude/standards/`](.claude/standards/) thay vì lặp lại trong từng file agent.
+
+Trong đó [`vietnamese-technical-writing.md`](.claude/standards/vietnamese-technical-writing.md) xử lý một lỗi lặp đi lặp lại của nội dung kỹ thuật viết bằng tiếng Việt: dịch bám chữ theo tiếng Anh, ra những cụm từ đúng nghĩa đen nhưng người đọc phải giải nghĩa ngược lại mới hiểu. Nó quy định gọi đúng tên khái niệm, mô tả cơ chế thay cho ẩn dụ, khi nào giữ nguyên tiếng Anh, và bốn câu hỏi để kiểm một câu đã đủ tường minh chưa.
 
 ## Tuỳ biến
 

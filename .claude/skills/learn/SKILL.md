@@ -34,16 +34,15 @@ File lesson (`NN-{ten}.md`) chỉ được tạo sau khi đã dạy xong chươn
 
 `exercises/` (đề bài) và `my-work/` (bài làm, review) tách biệt hoàn toàn để đề bài không lẫn lời giải. Không có file trạng thái/tiến độ riêng: sự tồn tại của các file/thư mục trên chính là trạng thái.
 
-## Nguyên tắc ngôn ngữ dễ tiếp cận
+## Nguyên tắc ngôn ngữ
 
-Mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review — đều phải viết bằng ngôn ngữ dễ tiếp cận:
-- Khái niệm/thuật ngữ mới phải được giải thích bằng ví dụ cụ thể hoặc liên hệ thực tế ngay lần dùng đầu tiên, trước khi dùng thuật ngữ đó mà không kèm giải thích ở các đoạn sau.
-- Không dùng từ viết tắt hay thuật ngữ chuyên ngành chưa từng được giải thích trong chính bundle đang xây.
-- Mức độ giải thích giảm dần theo tiến độ bundle, đúng tinh thần "Quy tắc giảm scaffold dần" — thuật ngữ đã giải thích ở chương trước coi như đã biết.
+Hai nguyên tắc dưới đây áp cho mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review — kể cả hội thoại chứ không riêng file ghi ra đĩa.
 
-## Nguyên tắc thuật ngữ chính xác
+**Ngôn ngữ dễ tiếp cận.** Thuật ngữ và từ viết tắt vẫn dùng bình thường, nhưng không được dùng trần trụi: lần đầu xuất hiện trong bundle phải kèm ví dụ cụ thể hoặc liên hệ thực tế. Cấm ở đây là cấm bỏ lửng, không phải cấm dùng thuật ngữ. Mức độ giải thích giảm dần theo tiến độ bundle, đúng tinh thần "Quy tắc giảm scaffold dần" — thuật ngữ đã giải thích ở chương trước coi như đã biết.
 
-Áp dụng cho mọi nội dung mentor tạo ra trong luồng `/learn` — hội thoại dạy, lesson, roadmap, đề bài, review. Đọc và áp dụng `../../standards/terminology-precision.md`.
+**Viết tiếng Việt kỹ thuật.** Đọc và áp dụng `../../standards/vietnamese-technical-writing.md`.
+
+Thứ tự giữa hai nguyên tắc: gọi đúng tên khái niệm và diễn đạt sang tiếng Việt không dịch bám chữ (chuẩn dùng chung) → rồi mới giải thích bằng ví dụ ở lần dùng đầu. Không được đảo thứ tự thành né thuật ngữ cho "dễ hiểu".
 
 ## Bảng agent theo domain
 
@@ -109,7 +108,7 @@ Thực hiện tuần tự, KHÔNG được bỏ qua bước duyệt của ngư�
 
 ### Bước 2c — Viết chương sau khi vượt chất vấn
 
-1. Dùng `Agent` tool gọi subagent Instructional Designer, cung cấp: nội dung hội thoại đã dạy, kết quả chất vấn ở Bước 2b, 1-2 file lesson gần nhất trong bundle làm mẫu văn phong/format, và yêu cầu tuân theo Nguyên tắc ngôn ngữ dễ tiếp cận cùng xác định cấp độ Bloom phù hợp giai đoạn hiện tại. Yêu cầu soạn `topics/<topic>/NN-{ten}.md` với mục "Cần đọc trước" và "Đọc tiếp" để liên kết mạch lạc với các chương khác trong CHÍNH bundle đang xây. Nếu đây là chương đầu tiên của bundle, tự thiết lập văn phong nhất quán để các chương sau theo, không có mẫu nào để copy; nếu bundle đã có chương trước, dùng chính các chương đó làm mẫu, không tham chiếu văn phong của bundle khác.
+1. Dùng `Agent` tool gọi subagent Instructional Designer, cung cấp: nội dung hội thoại đã dạy, kết quả chất vấn ở Bước 2b, 1-2 file lesson gần nhất trong bundle làm mẫu văn phong/format, và yêu cầu tuân theo cả hai Nguyên tắc ngôn ngữ ở trên cùng xác định cấp độ Bloom phù hợp giai đoạn hiện tại. Yêu cầu soạn `topics/<topic>/NN-{ten}.md` với mục "Cần đọc trước" và "Đọc tiếp" để liên kết mạch lạc với các chương khác trong CHÍNH bundle đang xây. Nếu đây là chương đầu tiên của bundle, tự thiết lập văn phong nhất quán để các chương sau theo, không có mẫu nào để copy; nếu bundle đã có chương trước, dùng chính các chương đó làm mẫu, không tham chiếu văn phong của bundle khác.
 2. Dùng `Agent` tool gọi subagent Technical Writer review bản thảo vừa nhận được — chỉ chấm rõ ràng, cấu trúc, phù hợp đối tượng đọc, giọng văn theo đúng phạm vi sẵn có của nó; không chấm lại quyết định sư phạm (cấp độ Bloom, độ khó lũy tiến) đã thuộc phạm vi Instructional Designer ở bước 1.
 3. Đưa bản thảo (đã qua review của Technical Writer) cho người dùng review/sửa trước khi coi là hoàn tất.
 4. Nếu file mới khớp với một mục đã liệt kê trong roadmap của `00-README.md`, cập nhật link tới file đó trong bảng roadmap.
@@ -135,7 +134,7 @@ Thực hiện tuần tự, KHÔNG được bỏ qua bước duyệt của ngư�
 
 1. Khi người dùng báo đã làm xong bài tập tại `topics/<topic>/my-work/NN-{ten-bai-tap}/attempt-N/`, đọc toàn bộ code trong thư mục đó.
 2. Nếu `topics/<topic>/my-work/NN-{ten-bai-tap}/attempt-(N-1)/REVIEW.md` tồn tại, đọc nó trước để biết những vấn đề đã nêu ở lần trước.
-3. Dùng `Agent` tool gọi agent phù hợp domain bài tập theo Bảng agent theo domain ở trên (ví dụ: Security Engineer nếu bài tập thiên về bảo mật, Frontend Engineer nếu về UI) — Quality Engineer là lựa chọn mặc định khi bài tập không thiên hẳn về một domain cụ thể. Cung cấp: đề bài (`PROBLEM.md` tương ứng trong `exercises/`), code của attempt hiện tại, nội dung `REVIEW.md` của attempt trước (nếu có) để subagent xác định vấn đề nào đã được khắc phục, và yêu cầu viết feedback theo Nguyên tắc ngôn ngữ dễ tiếp cận.
+3. Dùng `Agent` tool gọi agent phù hợp domain bài tập theo Bảng agent theo domain ở trên (ví dụ: Security Engineer nếu bài tập thiên về bảo mật, Frontend Engineer nếu về UI) — Quality Engineer là lựa chọn mặc định khi bài tập không thiên hẳn về một domain cụ thể. Cung cấp: đề bài (`PROBLEM.md` tương ứng trong `exercises/`), code của attempt hiện tại, nội dung `REVIEW.md` của attempt trước (nếu có) để subagent xác định vấn đề nào đã được khắc phục, và yêu cầu viết feedback theo cả hai Nguyên tắc ngôn ngữ ở trên.
 4. Ghi kết quả vào `topics/<topic>/my-work/NN-{ten-bai-tap}/attempt-N/REVIEW.md` với frontmatter:
 
    ```yaml
