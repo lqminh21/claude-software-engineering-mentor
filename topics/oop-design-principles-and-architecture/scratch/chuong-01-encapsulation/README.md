@@ -8,14 +8,18 @@ Chỗ nháp trong lúc học. Nằm ngoài `exercises/` (đề bài chính thứ
 | File | Vai trò | Cách dùng |
 |---|---|---|
 | `order-expose-data-vs-behavior.ts` | Code minh hoạ 5 ca caller cần đọc dữ liệu từ `Order` | `node order-expose-data-vs-behavior.ts` |
-| `order.ts` | Bài tập của bạn — tự viết lại `Order` không nhìn file trên | `node order.ts` |
 
 Node 24 chạy thẳng file `.ts`, không cần cài gì.
+
+**Bài tập không nằm ở đây.** Đề bài chính thức ở
+`../../exercises/01-order-tra-loi-hay-dua-du-lieu/PROBLEM.md`, bài làm ở
+`../../my-work/01-order-tra-loi-hay-dua-du-lieu/attempt-1/`. Thư mục này chỉ giữ
+code minh hoạ của buổi dạy.
 
 **Không có test ở chương này.** Phần phòng thủ của thiết kế nằm ở compile-time,
 mà `readonly` và `private` bị xoá trước khi test chạy — hai điều đáng kiểm tra
 nhất thì test runtime không với tới được. Chỗ chấm bài là editor: uncomment khối
-cuối `order.ts`, đủ 4 dòng đỏ là thiết kế đúng.
+tự kiểm cuối file, đủ 4 dòng đỏ là thiết kế đúng.
 
 Hai điều cần biết về cách Node chạy TypeScript: nó chỉ **xoá** phần type rồi
 chạy, không biên dịch. Nên (1) parameter property
