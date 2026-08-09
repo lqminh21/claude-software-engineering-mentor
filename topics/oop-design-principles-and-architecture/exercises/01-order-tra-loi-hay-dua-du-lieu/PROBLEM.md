@@ -32,15 +32,16 @@ trong hai nhóm, và viết ra được kiểu dữ liệu tương ứng:
 - **Nhóm B** — `Order` không đoán được câu hỏi → đưa dữ liệu, khoá bằng
   `readonly` ở cả hai tầng.
 
-Đây là bộ nhu cầu **khác** với năm ca đã đi qua trong buổi học. Đừng tra lại bảng
-phân loại cũ rồi chép sang: có nhu cầu ở đây thoạt nhìn giống một ca cũ nhưng rơi
-vào nhóm khác, và có nhu cầu không thuộc `Order`.
+Đây là bộ nhu cầu **khác** với năm ca đã đi qua trong buổi học — đừng tra lại
+bảng phân loại cũ rồi chép sang, vì có nhu cầu ở đây thoạt nhìn giống một ca cũ
+nhưng rơi vào nhóm khác, và có hai nhu cầu khác nhau cùng rơi vào một nhóm —
+đừng vì thế mà tưởng mỗi nhu cầu cần một getter riêng.
 
 ## Bối cảnh
 
-Vẫn là sàn thương mại điện tử của bundle. `Order` giờ phục vụ một nhánh nghiệp vụ
-mới: **đơn hàng bách hoá có hàng đông lạnh và có xuất hoá đơn giá trị gia tăng
-(VAT)**. Mỗi item trong đơn mang theo:
+Vẫn là sàn thương mại điện tử của bundle, nhưng `Order` giờ phục vụ thêm một
+nhánh nghiệp vụ mới: **đơn hàng bách hoá có hàng đông lạnh và có xuất hoá đơn
+giá trị gia tăng (VAT)**. Mỗi item trong đơn mang theo tám field sau:
 
 | Field | Ý nghĩa |
 |---|---|
@@ -53,19 +54,21 @@ mới: **đơn hàng bách hoá có hàng đông lạnh và có xuất hoá đơ
 | `volumeCm3` | thể tích một đơn vị sản phẩm, tính bằng cm³ |
 | `category` | danh mục, ví dụ `"frozen-food"`, `"beverage"` |
 
-Hai invariant — hai điều luôn đúng về dữ liệu của `Order`, chứ không phải hai
-thao tác phải làm:
+Hai invariant sau đây là hai điều luôn đúng về dữ liệu của `Order` — không phải
+hai thao tác phải thực hiện:
 
 1. `total` luôn bằng tổng `unitPrice × qty` trên mọi item (số tiền **chưa** thuế).
 2. `totalPayable` luôn bằng tổng `unitPrice × qty × (1 + vatRate)` trên mọi item.
 
-Thuế suất khác nhau giữa các mặt hàng, nên invariant 2 **không** rút gọn được
+Vì thuế suất khác nhau giữa các mặt hàng, invariant 2 **không** rút gọn được
 thành `total × một thuế suất chung`.
 
 ## Năm nhu cầu từ phía caller
 
-Với **mỗi** nhu cầu, bạn phải quyết định: `Order` trả lời (nhóm A), đưa dữ liệu
-(nhóm B), hay không phải việc của `Order`.
+Mỗi nhu cầu dưới đây đến từ một **caller** khác nhau — một bộ phận hoặc hệ
+thống gọi tới `Order` để lấy dữ liệu, ví dụ phòng kế toán ở N1 hay bộ phận điều
+phối vận chuyển ở N2. Với **mỗi** nhu cầu, bạn phải quyết định: `Order` trả lời
+(nhóm A), hay đưa dữ liệu (nhóm B).
 
 **N1 — Bộ phận kế toán xuất hoá đơn VAT.**
 Hoá đơn cần từng dòng gồm: tên hàng, số lượng, đơn giá chưa thuế, thuế suất, tiền
@@ -77,13 +80,17 @@ toán.
 phối chỉ cần biết đơn này có thuộc diện đó hay không.
 
 **N3 — Trạm đóng gói chọn thùng carton.**
-Trạm cần tổng thể tích của cả đơn. Quy tắc chọn thùng ở trạm hiện là "dưới
-20.000 cm³ dùng thùng S, từ đó tới 50.000 cm³ dùng thùng M, trên nữa chia hai
-kiện" — quy tắc này do bên vận hành kho đặt ra và đã đổi ba lần trong năm nay.
+Trạm cần biết đơn này nên đóng vào thùng cỡ nào: S, M, hay chia hai kiện, dựa
+trên tổng thể tích của đơn. Ngưỡng phân loại hiện là "dưới 20.000 cm³ dùng thùng
+S, từ đó tới 50.000 cm³ dùng thùng M, trên nữa chia hai kiện" — ngưỡng này do
+bên vận hành kho tự đặt và đã đổi ba lần trong năm nay. `Order` biết thể tích
+từng item, nhưng ngưỡng phân loại thì không — đó là chính sách vận hành kho,
+không phải sự thật cố định về đơn hàng, nên không nên khoá cứng thành một
+method riêng trên `Order`.
 
 **N4 — Màn hình chi tiết đơn gợi ý "sản phẩm cùng loại".**
 Bộ phận gợi ý sản phẩm cần biết đơn này chạm tới những danh mục nào, mỗi danh mục
-kể một lần. Nó không được nhìn thấy giá.
+kể một lần. Bộ phận này không được nhìn thấy giá.
 
 **N5 — Engine khuyến mãi "mua kèm".**
 Marketing cấu hình điều kiện ngay trên giao diện quản trị, không qua lập trình
@@ -99,11 +106,10 @@ kiện sẽ khác, và không ai biết trước là khác thế nào.
    mà bạn thấy cần thêm. Tự đặt tên các kiểu đó.
 3. Viết class `Order` với `id`, một danh sách item nội bộ, `addItem`, và hai
    getter `total` / `totalPayable` giữ đúng hai invariant.
-4. Với mỗi nhu cầu N1–N5, thêm vào `Order` đúng thứ nó cần — hoặc **không** thêm
-   gì và ghi lý do trong comment ngay tại chỗ, nếu bạn kết luận nhu cầu đó không
-   thuộc `Order`.
-5. Ở đầu file, viết một bảng comment năm dòng: mỗi nhu cầu → nhóm bạn xếp nó vào
-   → một câu lý do. Đây là phần được chấm kỹ nhất, không phải phần code.
+4. Với mỗi nhu cầu N1–N5: quyết định nó rơi vào nhóm A hay nhóm B, rồi thêm
+   đúng thứ nhóm đó cần vào `Order`.
+5. Đây là phần được chấm kỹ nhất, không phải phần code: ở đầu file, viết một
+   bảng comment năm dòng — mỗi nhu cầu → nhóm bạn xếp nó vào → một câu lý do.
 6. Cuối file để sẵn khối tự kiểm ở dạng comment (xem mục dưới).
 
 ### Ràng buộc kỹ thuật
@@ -119,14 +125,14 @@ kiện sẽ khác, và không ai biết trước là khác thế nào.
 
 ### Cách tự kiểm — không có test
 
-Bài này **không có test runtime**, và đó là quyết định thiết kế chứ không phải
-thiếu sót: `readonly` và `private` bị xoá trước khi test chạy, nên hai thứ đáng
-kiểm nhất thì test runtime không với tới được.
+Bài này **không có test runtime** — đây là quyết định thiết kế, không phải
+thiếu sót. `readonly` và `private` bị xoá trước khi test chạy, nên hai thứ đáng
+kiểm nhất trong bài lại chính là hai thứ test runtime không với tới được.
 
 Chỗ chấm bài là editor. Cuối file, để sẵn một khối các dòng **cố tình sai** ở
-dạng comment. Uncomment cả khối, editor phải báo đỏ ở **mọi** dòng. Chú thích
-giải thích phải nằm **cùng dòng, sau** đoạn code, để uncomment không sinh lỗi cú
-pháp. Nhớ comment lại sau khi xem xong.
+dạng comment. Uncomment cả khối thì editor phải báo đỏ ở **mọi** dòng. Chú
+thích giải thích phải nằm **cùng dòng, sau** đoạn code, để uncomment không sinh
+lỗi cú pháp. Nhớ comment lại sau khi xem xong.
 
 Khối đó phải bao gồm ít nhất bốn tình huống:
 
@@ -146,8 +152,10 @@ Bài đạt khi **tất cả** những điều dưới đây đúng.
 - Bảng comment đầu file có đủ năm dòng, mỗi dòng nêu được lý do dựa trên "câu hỏi
   có biết trước được không", chứ không dựa trên "trả về ít dữ liệu hơn thì an
   toàn hơn".
-- Có ít nhất một nhu cầu bị xếp ra ngoài `Order`, và lý do nêu đúng ranh giới
-  giữa sự thật về đơn hàng và chính sách của bộ phận khác.
+- N3 và N5 phải dùng chung đúng **một** getter nhóm B. Lý do đưa N3 vào nhóm B
+  phải nêu đúng: ngưỡng đóng thùng là chính sách vận hành kho hay đổi, không
+  phải sự thật cố định của `Order`, nên không hardcode thành method riêng —
+  khác với lý do của N5 (câu hỏi tương lai không đoán trước được).
 - Nhu cầu nào rơi vào nhóm B thì trong file chỉ có **một** getter trả về danh
   sách item đầy đủ. Có từ hai getter kiểu đó trở lên là chưa đạt.
 
