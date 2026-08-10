@@ -9,11 +9,15 @@ Chỗ nháp trong lúc học. Nằm ngoài `exercises/` (đề bài chính thứ
 |---|---|---|
 | `order-expose-data-vs-behavior.ts` | Code minh hoạ 5 ca caller cần đọc dữ liệu từ `Order` | `node order-expose-data-vs-behavior.ts` |
 
-Node 24 chạy thẳng file `.ts`, không cần cài gì.
+Lý thuyết của chương nằm ở `../../01-oop-foundations.md`.
+
+Node 24 chạy thẳng file `.ts`, không cần cài gì. Máy đang dùng là Node 22.15.1,
+nên phải thêm cờ: `node --experimental-strip-types <file>.ts` — thiếu cờ thì báo
+`ERR_UNKNOWN_FILE_EXTENSION`.
 
 **Bài tập không nằm ở đây.** Đề bài chính thức ở
-`../../exercises/01-order-tra-loi-hay-dua-du-lieu/PROBLEM.md`, bài làm ở
-`../../my-work/01-order-tra-loi-hay-dua-du-lieu/attempt-1/`. Thư mục này chỉ giữ
+`../../exercises/01-answer-or-expose-data/PROBLEM.md`, bài làm ở
+`../../my-work/01-answer-or-expose-data/attempt-1/`. Thư mục này chỉ giữ
 code minh hoạ của buổi dạy.
 
 **Không có test ở chương này.** Phần phòng thủ của thiết kế nằm ở compile-time,

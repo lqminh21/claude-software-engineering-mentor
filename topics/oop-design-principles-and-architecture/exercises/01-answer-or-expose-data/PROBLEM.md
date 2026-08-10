@@ -1,14 +1,13 @@
 ---
 difficulty: Beginner
-related_lessons: []
+related_lessons: ["01-oop-foundations"]
 estimated_time: "60-75 phút"
 skills: ["encapsulation", "invariants", "least-privilege", "immutable-types", "responsibility-boundaries"]
 ---
 
 <!--
-`related_lessons` để rỗng có chủ ý: chương 1 đã dạy qua hội thoại nhưng bundle
-chưa có file lesson `01-*.md` nào trên đĩa. Khi file lesson chương 1 được viết,
-bổ sung slug của nó vào đây. Không điền slug chưa tồn tại.
+`related_lessons` trỏ tới `01-oop-foundations.md` ở gốc bundle. Chỉ
+điền slug của file lesson đã tồn tại trên đĩa, không điền slug dự kiến.
 
 Giá trị của khoá `difficulty` luôn viết nguyên văn tiếng Anh
 (`Beginner` | `Intermediate` | `Advanced`) để bước đối chiếu tiến độ giữa các
@@ -114,8 +113,9 @@ kiện sẽ khác, và không ai biết trước là khác thế nào.
 
 ### Ràng buộc kỹ thuật
 
-- TypeScript, chạy bằng `node order.ts` trên Node 24. Node **xoá** phần type rồi
-  chạy chứ không biên dịch, nên:
+- TypeScript, chạy bằng `node order.ts` trên Node 24 — trên Node 22 thì
+  `node --experimental-strip-types order.ts`. Node **xoá** phần type rồi chạy
+  chứ không biên dịch, nên:
   - Không dùng parameter property (`constructor(private items: Item[]) {}`) —
     khai báo field tường minh trong thân class.
   - Node không kiểm tra kiểu. Muốn kiểm thì dựa vào editor, hoặc chạy
@@ -186,5 +186,5 @@ Bài đạt khi **tất cả** những điều dưới đây đúng.
 ## Nộp bài
 
 Đặt bài làm tại
-`topics/oop-design-principles-and-architecture/my-work/01-order-tra-loi-hay-dua-du-lieu/attempt-1/order.ts`,
+`topics/oop-design-principles-and-architecture/my-work/01-answer-or-expose-data/attempt-1/order.ts`,
 rồi báo mentor để được review.
