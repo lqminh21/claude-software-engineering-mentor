@@ -108,10 +108,22 @@ Thực hiện tuần tự, KHÔNG được bỏ qua bước duyệt của ngư�
 
 ### Bước 2c — Viết chương sau khi vượt chất vấn
 
-1. Dùng `Agent` tool gọi subagent Instructional Designer, cung cấp: nội dung hội thoại đã dạy, kết quả chất vấn ở Bước 2b, 1-2 file lesson gần nhất trong bundle làm mẫu văn phong/format, và yêu cầu tuân theo cả hai Nguyên tắc ngôn ngữ ở trên cùng xác định cấp độ Bloom phù hợp giai đoạn hiện tại. Yêu cầu soạn `topics/<topic>/NN-{ten}.md` với mục "Cần đọc trước" và "Đọc tiếp" để liên kết mạch lạc với các chương khác trong CHÍNH bundle đang xây. Nếu đây là chương đầu tiên của bundle, tự thiết lập văn phong nhất quán để các chương sau theo, không có mẫu nào để copy; nếu bundle đã có chương trước, dùng chính các chương đó làm mẫu, không tham chiếu văn phong của bundle khác.
-2. Dùng `Agent` tool gọi subagent Technical Writer review bản thảo vừa nhận được — chỉ chấm rõ ràng, cấu trúc, phù hợp đối tượng đọc, giọng văn theo đúng phạm vi sẵn có của nó; không chấm lại quyết định sư phạm (cấp độ Bloom, độ khó lũy tiến) đã thuộc phạm vi Instructional Designer ở bước 1.
-3. Đưa bản thảo (đã qua review của Technical Writer) cho người dùng review/sửa trước khi coi là hoàn tất.
-4. Nếu file mới khớp với một mục đã liệt kê trong roadmap của `00-README.md`, cập nhật link tới file đó trong bảng roadmap.
+1. **Phát biểu rõ giới hạn nội dung trước khi giao cho ai soạn:** đối tượng đọc và cấp độ Bloom (tra bảng chương ở `00-README.md`, không tự đặt mới), giới hạn độ dài dự kiến, và nội dung đẩy sang chương sau — ghi ngay vào bảng chương của `00-README.md` trong cùng lần sửa, vì phiên sau đọc file này để biết việc cần làm, không đọc lại hội thoại của phiên trước.
+2. Dùng `Agent` tool gọi subagent Instructional Designer, cung cấp: nội dung hội thoại đã dạy, kết quả chất vấn ở Bước 2b, giới hạn vừa chốt ở mục 1, 1-2 file lesson gần nhất trong bundle làm mẫu văn phong/format, và yêu cầu tuân theo cả hai Nguyên tắc ngôn ngữ ở trên. Nếu đây là chương đầu tiên của bundle, tự thiết lập văn phong nhất quán để các chương sau theo; nếu bundle đã có chương trước, dùng chính chương đó làm mẫu.
+
+   Yêu cầu bản thảo trả lời đủ các câu hỏi sau — danh mục **nội dung phải có**, không phải danh mục **đề mục phải đặt đúng tên đó**, thứ tự và tên đề mục do người soạn quyết định:
+   1. Vấn đề chương này giải quyết — chương này tồn tại vì công việc thật gặp khó khăn gì?
+   2. Cách làm trước đó và chỗ nó hỏng — không có khái niệm này thì người ta làm thế nào, và cách đó thất bại ở tình huống nào?
+   3. Khái niệm, gọi bằng tên chuẩn ngành — định nghĩa, và cơ chế của nó.
+   4. Ví dụ chạy được, bằng đúng ngôn ngữ đã dùng nhất quán trong các chương trước của bundle.
+   5. Giới hạn: khi nào không dùng. Nếu khái niệm nền tảng tới mức không có giới hạn nào có ý nghĩa thật (ví dụ Class, Object ở chương mở đầu), thay bằng ngộ nhận thường gặp khi mới học.
+   6. So sánh với lựa chọn khác, đánh đổi ở đâu — không có lựa chọn đáng so sánh thì ghi rõ lý do, không bịa.
+   7. Tổng kết, thuật ngữ, đọc thêm, liên kết chương — gồm mục "Cần đọc trước"/"Đọc tiếp" để liên kết với các chương khác trong CHÍNH bundle đang xây.
+
+   Loại trừ: tên người, năm, tên bài báo, thuật ngữ hàn lâm — chỉ giữ khi thiếu nó người đọc sẽ chọn sai công cụ hoặc quyết định sai, không thì chuyển xuống phần đọc thêm; bài tập/bộ từ vựng riêng của đề bài không được làm khung hay bộ từ vựng của chương.
+3. Dùng `Agent` tool gọi subagent Technical Writer review bản thảo — rõ ràng, cấu trúc, phù hợp đối tượng đọc, giọng văn (không chấm lại quyết định sư phạm như cấp độ Bloom, độ khó lũy tiến — thuộc phạm vi Instructional Designer ở mục 2). Vì đây là bên chưa viết bản thảo, giao thêm ba việc: đối chiếu Có/Thiếu với 7 thành phần ở mục 2; áp phép thử độc lập với buổi dạy — file lesson phải đọc được bởi người **không** dự buổi dạy, trích câu cụ thể nếu bản thảo còn phụ thuộc buổi dạy hoặc đề bài (ví dụ "như đã hỏi ở trên"), không tự nhận chung "đạt"; nếu bản thảo vượt giới hạn độ dài ở mục 1, đối chiếu lý do với nội dung thật đã thêm vào — lý do không khớp với phần nội dung thêm vào thì yêu cầu cắt bớt.
+4. Đưa bản thảo (đã qua review của Technical Writer) cho người dùng review/sửa trước khi coi là hoàn tất. Nếu mục 1 đã sửa bảng chương của `00-README.md`, nêu rõ phần đã sửa để người dùng xác nhận cùng lúc — bảng chương từng được duyệt ở Pha A.
+5. Nếu file mới khớp với một mục đã liệt kê trong roadmap của `00-README.md`, cập nhật link tới file đó trong bảng chương.
 
 ### Bước 2d — Thiết kế bài tập mới
 
