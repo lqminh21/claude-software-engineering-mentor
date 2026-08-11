@@ -24,7 +24,7 @@ Kết thúc bundle, có thể:
 
 | # | Chương | Giai đoạn | Nội dung chính |
 |---|---|---|---|
-| 1 | TypeScript cho phỏng vấn | Nền tảng | Type system, generic, utility types, câu hỏi TS hay gặp; phân biệt `interface` vs `type`, khi nào dùng loại nào |
+| 1 | [TypeScript cho phỏng vấn](01-typescript-cho-phong-van.md) | Nền tảng | Type system, generic, utility types, câu hỏi TS hay gặp; phân biệt `interface` vs `type`, khi nào dùng loại nào |
 | 2 | Node.js Runtime & Performance | Nền tảng | Kiến trúc Event Loop (các phase), non-blocking I/O, điểm mạnh Node (I/O-bound) và khi nào KHÔNG nên dùng (CPU-bound); vấn đề hiệu năng thường gặp (block event loop, memory leak, GC); cluster module/worker_threads |
 | 3 | Kiến trúc NestJS vs Express | Nền tảng | Module/Provider/DI, Middleware/Guard/Interceptor/Pipe |
 | 4 | SOLID, Design Pattern & Clean Architecture/DDD | Nền tảng | SOLID và layering Clean Architecture/DDD (bounded context) là trọng tâm; pattern phổ biến (Factory/Strategy/Observer/Singleton/Repository) lướt nhanh dạng bảng tra cứu |
@@ -60,6 +60,7 @@ Link tới từng chương sẽ được cập nhật vào bảng trên ngay khi
 
 ## Ghi chú nội dung (tạm thời, xoá khi chương tương ứng viết xong)
 
+- Ch1: đối tượng đọc đã có kinh nghiệm thực chiến TypeScript, KHÔNG dạy cú pháp cơ bản từ số 0. Cấp độ Bloom: Understand + Apply (giải thích cơ chế, so sánh trade-off, chọn đúng công cụ theo tình huống) — theo đúng mục tiêu chung của bundle, không phải Remember thuần. Nội dung cần có: (1) `interface` vs `type` — union, declaration merging, `extends` fail-fast (báo lỗi ngay lúc khai báo) vs `&` intersection im lặng ra `never`, và lý do thực tế chọn `type` cho props cần discriminated union; (2) generic — phân biệt với `any` qua ví dụ mất/giữ type sau khi gọi hàm, generic parameter phải nằm ở call signature (không phải ở alias) để giữ tính "mỗi lời gọi tự suy kiểu"; (3) generic constraint `K extends keyof T`; (4) 4 utility type nền `Partial`/`Pick` (derive từ mapped type `{[K in ...]: ...}`) và `Omit`/`Record` (nêu định nghĩa, không derive sâu); (5) `unknown` vs `any`; (6) exhaustiveness check bằng `never` trong `switch` trên discriminated union, và factor thành hàm `assertNever` dùng chung (kết quả chất vấn Quality Engineer: bản chất không phải "code smell", vấn đề thật là lặp code, sửa bằng cách factor hàm chung). KHÔNG đào sâu conditional type (`Exclude`/`Extract`/`Infer`) — chỉ nêu tên `Exclude` trong công thức `Omit`, không derive cơ chế, đẩy ra ngoài phạm vi chương này (chưa chương nào trong roadmap phụ trách riêng phần này). Độ dài dự kiến: ~600-900 dòng markdown, không kéo dài giải thích JS/TS cơ bản mà đối tượng đã biết.
 - Ch5: nêu 1 câu signpost "trade-off transaction phân tán này sẽ được đào sâu ở góc độ DB tại chương 8 (Concurrency & Transaction) và chương 12 (SQL sâu)" — tránh cảm giác forward-reference treo lơ lửng.
 - Ch9: định vị chương này là góc nhìn TEST/BENCHMARK phát hiện vấn đề, KHÔNG dạy cơ chế đầy đủ — N+1 dạy cơ chế đầy đủ ở ch.12, cache dạy cơ chế đầy đủ ở ch.14. Phải có signpost rõ trỏ tới 2 chương đó để người học không hiểu nhầm đây là lần dạy duy nhất.
 - Ch12: khi viết, đảm bảo `partitioning/sharding/replication` dạy ở tầng CƠ CHẾ DB (Postgres/MySQL làm điều đó thế nào) — ch.21 sẽ tái dùng lại các khái niệm này ở tầng quyết định scale toàn hệ thống, không dạy trùng.
